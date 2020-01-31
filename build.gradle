@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'  //for gradle run
+
+group 'com.ayoshimatsu.'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+//gradle run
+mainClassName = 'com.ayoshimatsu.KFramePZL'
+
+/*Execute java task*/
+task main(type: JavaExec) {
+    main = "com.ayoshimatsu.KFramePZL"  //main class name(full path)
+    classpath = sourceSets.main.runtimeClasspath
+}
